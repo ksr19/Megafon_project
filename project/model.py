@@ -77,7 +77,7 @@ if __name__ == '__main__':
 
     print('Сохранение')
     test_df['target'] = target_pred_proba
-    test_df['buy_time'] = buy_times
+    test_df['buy_time'] = buy_times.values
     test_df.drop(['offer_day', 'offer_weekday', 'offer_hour'], axis=1, inplace=True)
     df = output_df(initial_test_df, test_df)
     df.to_csv('answers_test.csv', index=False)
