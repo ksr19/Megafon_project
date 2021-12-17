@@ -1,7 +1,6 @@
 import pandas as pd
 import datetime as dt
 import pickle
-import dill
 import sys
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from sklearn.pipeline import Pipeline, FeatureUnion, make_pipeline
@@ -72,7 +71,7 @@ if __name__ == '__main__':
                        by='buy_time', direction='nearest')
 
     print('Предсказание')
-    model = dill.load(open('model.dill', 'rb'))
+    model = pickle.load(open('model.pkl', 'rb'))
     target_pred_proba = model.predict_proba(df)[:, 1]
 
     print('Сохранение')
